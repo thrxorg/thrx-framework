@@ -9,7 +9,7 @@
    <parent>
       <groupId>org.thrx.service</groupId>
       <artifactId>thrx-framework-parent</artifactId>
-      <version>1.00.00-SNAPSHOT</version>
+      <version>0.1.0-SNAPSHOT</version>
    </parent>
 
    <artifactId>thrx-framework-bom</artifactId>
