@@ -1,3 +1,15 @@
 language: java
 jdk:
   - oraclejdk8
+cache:
+  directories:
+  - $HOME/.m2
+notifications:
+  webhooks:
+    urls:
+        - https://webhooks.gitter.im/e/a31ac48b023f920fc9b5
+    on_success: always
+    on_failure: always  
+  
+  
+  

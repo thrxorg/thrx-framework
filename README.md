@@ -27,6 +27,22 @@ Focus on rapid development of small and medium
 
 ## Development
 
+Used services:
+* Sources
+** https://github.com/organizations/thrxorg
+* Bintray
+** https://bintray.com/thrxde
+** https://bintray.com/thrxorg
+** https://dl.bintray.com/thrxorg/public-maven-repo
+* Building / CI
+** https://travis-ci.org/
+** https://gitter.im/TecTeamUlm
+
+Documentations and Howto:
+* https://github.com/bintray/bintray-examples
+* https://oss.jfrog.org
+
+
 ### Build
 
 Build the project with
