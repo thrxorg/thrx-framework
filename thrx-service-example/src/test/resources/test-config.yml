@@ -1,0 +1,12 @@
+# use the simple server factory if you only want to run on a single port
+server:
+  type: simple
+  applicationContextPath: /application
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 0
+    
+logging:
+  loggers:
+    org.glassfish.jersey.filter.LoggingFeature: INFO

@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings
+.springBeans
+target
+src/main/java/org/thrx/service/example/util/BuildVersion.java
+/dependency-reduced-pom.xml

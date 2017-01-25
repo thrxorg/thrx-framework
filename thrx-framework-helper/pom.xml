@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>org.thrx.service</groupId>
+      <artifactId>thrx-framework-parent</artifactId>
+      <version>1.00.00-SNAPSHOT</version>
+   </parent>
+
+   <artifactId>thrx-framework-helper</artifactId>
+   <name>thrx  Microservice Helper</name>
+   <packaging>jar</packaging>
+
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>org.thrx.service</groupId>
+            <artifactId>thrx-framework-bom</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
+
+   <dependencies>
+      <dependency>
+         <groupId>io.dropwizard</groupId>
+         <artifactId>dropwizard-core</artifactId>
+      </dependency>
+   </dependencies>
+
+</project>
