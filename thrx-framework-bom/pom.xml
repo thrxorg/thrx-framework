@@ -14,7 +14,7 @@
 
    <artifactId>thrx-framework-bom</artifactId>
    <packaging>pom</packaging>
-   <name>thrx Microservice BOM</name>
+   <name>thrx.org Microservice BOM</name>
    <description>
         Bill of materials to make sure a consistent set of versions is used for Dropwizard modules.
     </description>

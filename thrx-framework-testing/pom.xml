@@ -10,7 +10,7 @@
    </parent>
 
    <artifactId>thrx-framework-testing</artifactId>
-   <name>thrx  Microservice Testing</name>
+   <name>thrx.org Microservice Testing</name>
    <packaging>jar</packaging>
 
    <dependencyManagement>

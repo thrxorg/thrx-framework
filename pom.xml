@@ -10,12 +10,19 @@
 	<artifactId>thrx-framework-parent</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>THRX Microservice Stack Parent</name>
+	<name>thrx.org Microservice Stack Parent</name>
 
 	<organization>
 		<name>thrx.org</name>
 		<url>https://github.com/thrxorg</url>
 	</organization>
+
+   <scm>
+      <connection>scm:git:https://github.com/thrxorg/thrx-framework.git</connection>
+      <developerConnection>scm:git:https://github.com/thrxorg/thrx-framework.git</developerConnection>
+      <url>https://github.com/thrxorg/thrx-framework</url>
+      <tag>HEAD</tag>
+   </scm>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -41,11 +48,9 @@
 		<profile>
 			<id>oss-jfrog-repo</id>
 			<activation>
-				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>PROFILE_OSS_JFROG_ENABLED</name>
-					<value>true</value>
-				</property>
+				<activeByDefault>true</activeByDefault>
+				<!-- <property> <name>PROFILE_OSS_JFROG_ENABLED</name> <value>true</value> 
+					</property> -->
 			</activation>
 			<distributionManagement>
 				<snapshotRepository>
@@ -61,28 +66,19 @@
 			</distributionManagement>
 		</profile>
 		<profile>
-			<id>generic-bintray-repo</id>
+			<id>bintray-thrxorg-public-maven-repo</id>
 			<activation>
-				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>PROFILE_GENERIC_BINTRAY_ENABLED</name>
-					<value>true</value>
-				</property>
+				<activeByDefault>true</activeByDefault>
+				<!-- <property> <name>PROFILE_BINTRAY_THRXORG_ENABLED</name> <value>true</value> 
+					</property> -->
 			</activation>
 			<distributionManagement>
-				<snapshotRepository>
-					<id>oss-jfrog-snapshots</id>
-					<name>oss-jfrog-artifactory-snapshots</name>
-					<url>https://api.bintray.com/content/thrxorg/public-generic-repo/maven/repository/</url>
-				</snapshotRepository>
 				<repository>
-					<id>oss-jfrog-central</id>
-					<name>oss-jfrog-artifactory-releases</name>
-					<url>https://api.bintray.com/content/thrxorg/public-generic-repo/maven/repository/</url>
+					<id>bintray-thrxorg-public-maven-repo</id>
+					<name>thrxorg-public-maven-repo</name>
+					<url>https://api.bintray.com/maven/thrxorg/public-maven-repo/thrx-framework/;publish=1</url>
 				</repository>
 			</distributionManagement>
 		</profile>
 	</profiles>
-
-
 </project>

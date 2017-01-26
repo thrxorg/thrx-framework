@@ -10,7 +10,7 @@
    </parent>
 
    <artifactId>thrx-framework-helper</artifactId>
-   <name>thrx  Microservice Helper</name>
+   <name>thrx.org Microservice Helper</name>
    <packaging>jar</packaging>
 
    <dependencyManagement>
