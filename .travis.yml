@@ -1,15 +1,22 @@
 language: java
+sudo: false
 jdk:
   - oraclejdk8
 cache:
   directories:
   - $HOME/.m2
+  - $HOME/.ivy2
+before_cache:
+  # Ensure changes to the cache aren't persisted
+  - rm -rf $HOME/.m2/cache/de.thrx
+  - rm -rf $HOME/.m2/cache/org.thrx
+  - rm -rf $HOME/.ivy2/cache/de.thrx
+  - rm -rf $HOME/.ivy2/cache/org.thrx
+script: "mvn deploy --settings .travis_settings.xml"
 notifications:
   webhooks:
     urls:
         - https://webhooks.gitter.im/e/a31ac48b023f920fc9b5
     on_success: always
     on_failure: always  
-  
-  
-  
+    
