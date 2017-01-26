@@ -1,30 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <prerequisites>
-        <maven>3.0.1</maven>
-    </prerequisites>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0.1</maven>
+	</prerequisites>
 
-    <groupId>org.thrx.service</groupId>
-    <artifactId>thrx-framework-parent</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>THRX Microservice Stack Parent</name>
+	<groupId>org.thrx.service</groupId>
+	<artifactId>thrx-framework-parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>THRX Microservice Stack Parent</name>
 
-   <properties>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <maven.compiler.target>1.8</maven.compiler.target>
-      <java.version>1.8</java.version>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <dropwizard.version>1.0.5</dropwizard.version>
-   </properties>
+	<organization>
+		<name>thrx.org</name>
+		<url>https://github.com/thrxorg</url>
+	</organization>
 
-    <modules>
-        <!--<module>docs</module>-->
-        <module>thrx-framework-bom</module>
-        <module>thrx-framework-helper</module>
-        <module>thrx-framework-testing</module>
-        <module>thrx-service-example</module>
-    </modules>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<dropwizard.version>1.0.5</dropwizard.version>
+	</properties>
+
+	<modules>
+		<!--<module>docs</module> -->
+		<module>thrx-framework-bom</module>
+		<module>thrx-framework-helper</module>
+		<module>thrx-framework-testing</module>
+		<module>thrx-service-example</module>
+	</modules>
+
+	<!-- <build> <extensions> <extension> <groupId>org.apache.maven.wagon</groupId> 
+		<artifactId>wagon-http-lightweight</artifactId> <version>2.10</version> </extension> 
+		</extensions> </build> -->
+
+	<profiles>
+		<profile>
+			<id>oss-jfrog-repo</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>PROFILE_OSS_JFROG_ENABLED</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<distributionManagement>
+				<snapshotRepository>
+					<id>oss-jfrog-snapshots</id>
+					<name>oss-jfrog-artifactory-snapshots</name>
+					<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+				</snapshotRepository>
+				<repository>
+					<id>oss-jfrog-central</id>
+					<name>oss-jfrog-artifactory-releases</name>
+					<url>https://oss.jfrog.org/artifactory/oss-release-local</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+		<profile>
+			<id>generic-bintray-repo</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>PROFILE_GENERIC_BINTRAY_ENABLED</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<distributionManagement>
+				<snapshotRepository>
+					<id>oss-jfrog-snapshots</id>
+					<name>oss-jfrog-artifactory-snapshots</name>
+					<url>https://api.bintray.com/content/thrxorg/public-generic-repo/maven/repository/</url>
+				</snapshotRepository>
+				<repository>
+					<id>oss-jfrog-central</id>
+					<name>oss-jfrog-artifactory-releases</name>
+					<url>https://api.bintray.com/content/thrxorg/public-generic-repo/maven/repository/</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+
 
 </project>
