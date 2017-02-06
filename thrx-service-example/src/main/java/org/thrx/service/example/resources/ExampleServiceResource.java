@@ -7,9 +7,12 @@ import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
 
+import io.swagger.annotations.Api;
+
 import org.thrx.service.base.api.StatusResult;
 import org.thrx.service.example.util.Version;
 
+@Api
 @Path("/exampleService")
 @Produces(MediaType.APPLICATION_JSON)
 public class ExampleServiceResource {

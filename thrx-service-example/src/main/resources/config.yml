@@ -44,4 +44,7 @@ jerseyClient:
   gzipEnabled: true
   gzipEnabledForRequests: true
   chunkedEncodingEnabled: true
-    
+
+# the only required property is resourcePackage, for more config options see below
+swagger:
+  resourcePackage: org.thrx.service.example.resources  

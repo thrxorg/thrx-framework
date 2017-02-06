@@ -1,70 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-   <modelVersion>4.0.0</modelVersion>
-   <prerequisites>
-      <maven>3.0.1</maven>
-   </prerequisites>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0.1</maven>
+	</prerequisites>
 
-   <parent>
-      <groupId>org.thrx.service</groupId>
-      <artifactId>thrx-framework-parent</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-   </parent>
+	<parent>
+		<groupId>org.thrx.service</groupId>
+		<artifactId>thrx-framework-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
 
-   <artifactId>thrx-framework-bom</artifactId>
-   <packaging>pom</packaging>
-   <name>thrx.org Microservice BOM</name>
-   <description>
+	<artifactId>thrx-framework-bom</artifactId>
+	<packaging>pom</packaging>
+	<name>thrx.org Microservice BOM</name>
+	<description>
         Bill of materials to make sure a consistent set of versions is used for Dropwizard modules.
     </description>
 
-   <properties>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <maven.compiler.target>1.8</maven.compiler.target>
-      <java.version>1.8</java.version>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<dropwizard.version>1.0.6</dropwizard.version>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-   </properties>
+		<dropwizard-swagger.version>1.0.6-1</dropwizard-swagger.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 
-   <dependencyManagement>
-      <dependencies>
-         <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-bom</artifactId>
-            <version>${dropwizard.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-         </dependency>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.dropwizard</groupId>
+				<artifactId>dropwizard-bom</artifactId>
+				<version>${dropwizard.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 
-          <!-- Module Versions -->
-         <dependency>
-            <groupId>org.thrx.service</groupId>
-            <artifactId>thrx-framework-helper</artifactId>
-            <version>${project.version}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.thrx.service</groupId>
-            <artifactId>thrx-framework-testing</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-         </dependency>
+			<dependency>
+				<groupId>com.smoketurner</groupId>
+				<artifactId>dropwizard-swagger</artifactId>
+				<version>${dropwizard-swagger.version}</version>
+			</dependency>
 
-         <dependency>
-            <groupId>pl.pragmatists</groupId>
-            <artifactId>JUnitParams</artifactId>
-            <version>1.0.5</version>
-            <!-- <scope>test</scope> -->
-         </dependency>
-         <dependency>
-            <!-- JSON parser for tests -->
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.9.2</version>
-            <!-- <scope>test</scope> -->
-         </dependency>
-      </dependencies>
-   </dependencyManagement>
+			<!-- Module Versions -->
+			<dependency>
+				<groupId>org.thrx.service</groupId>
+				<artifactId>thrx-framework-helper</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.thrx.service</groupId>
+				<artifactId>thrx-framework-testing</artifactId>
+				<version>${project.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>pl.pragmatists</groupId>
+				<artifactId>JUnitParams</artifactId>
+				<version>1.0.5</version>
+				<!-- <scope>test</scope> -->
+			</dependency>
+			<dependency>
+				<!-- JSON parser for tests -->
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>1.9.2</version>
+				<!-- <scope>test</scope> -->
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>

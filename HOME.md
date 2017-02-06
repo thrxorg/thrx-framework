@@ -30,6 +30,17 @@
 ## thrx-framework-testing
 	only testing extentions for dropwizard framework
 
+## thrx-framework swagger test
+
+https://github.com/smoketurner/dropwizard-swagger
+
+Swagger Json:
+http://localhost:20000/application/swagger.json
+
+Swagger UI
+http://localhost:20000/application/swagger
+
+
 ## thrx-framework-example
 
 ### services

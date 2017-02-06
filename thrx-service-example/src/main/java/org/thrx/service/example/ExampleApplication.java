@@ -5,10 +5,13 @@ import javax.ws.rs.client.Client;
 import org.thrx.service.base.health.ExampleHealthCheck;
 import org.thrx.service.example.client.ExternalServiceResource;
 import org.thrx.service.example.resources.ExampleServiceResource;
+
 import io.dropwizard.Application;
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 public class ExampleApplication extends Application<ExampleConfiguration> {
 
@@ -24,7 +27,12 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
 
     @Override
     public void initialize(Bootstrap<ExampleConfiguration> bootstrap) {
-        // nothing to do yet
+    	 bootstrap.addBundle(new SwaggerBundle<ExampleConfiguration>() {
+    	        @Override
+    	        protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(ExampleConfiguration configuration) {
+    	            return configuration.swaggerBundleConfiguration;
+    	        }
+    	    });
     }
 
     @Override

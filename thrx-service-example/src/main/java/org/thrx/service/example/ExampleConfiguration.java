@@ -8,12 +8,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.client.HttpClientConfiguration;
 import io.dropwizard.client.JerseyClientConfiguration;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 public class ExampleConfiguration extends Configuration {
    @Valid
    @NotNull
    @JsonProperty
    private JerseyClientConfiguration jerseyClient = new JerseyClientConfiguration();
+   
+   @JsonProperty("swagger")
+   public SwaggerBundleConfiguration swaggerBundleConfiguration;
 
    //@JsonProperty("jerseyClient")
    public JerseyClientConfiguration getJerseyClientConfiguration() {
