@@ -10,3 +10,7 @@ server:
 logging:
   loggers:
     org.glassfish.jersey.filter.LoggingFeature: INFO
+    
+# the only required property is resourcePackage, for more config options see below
+swagger:
+  resourcePackage: org.thrx.service.example.resources  
