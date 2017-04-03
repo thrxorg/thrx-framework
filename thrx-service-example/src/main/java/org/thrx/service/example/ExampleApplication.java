@@ -1,7 +1,17 @@
 package org.thrx.service.example;
 
+import static org.eclipse.jetty.servlets.CrossOriginFilter.ALLOWED_HEADERS_PARAM;
+import static org.eclipse.jetty.servlets.CrossOriginFilter.ALLOWED_METHODS_PARAM;
+import static org.eclipse.jetty.servlets.CrossOriginFilter.ALLOWED_ORIGINS_PARAM;
+import static org.eclipse.jetty.servlets.CrossOriginFilter.ALLOW_CREDENTIALS_PARAM;
+
+import java.util.EnumSet;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
 import javax.ws.rs.client.Client;
 
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.thrx.service.base.health.ExampleHealthCheck;
 import org.thrx.service.example.client.ExternalServiceResource;
 import org.thrx.service.example.resources.ExampleServiceResource;
@@ -35,8 +45,20 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
     	    });
     }
 
+    private static final String GOOD_ORIGIN = "allowed_host";
+    private static final String BAD_ORIGIN = "denied_host";
+    
     @Override
     public void run(ExampleConfiguration configuration,Environment environment) {
+       
+       FilterRegistration.Dynamic filter = environment.servlets().addFilter("CORSFilter", CrossOriginFilter.class);
+       filter.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), false, environment.getApplicationContext().getContextPath() + "*");
+       filter.setInitParameter(ALLOWED_METHODS_PARAM, "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+       filter.setInitParameter(ALLOWED_HEADERS_PARAM, "X-Requested-With,Content-Type,Accept,Origin");
+       filter.setInitParameter(ALLOWED_ORIGINS_PARAM, "*");
+       filter.setInitParameter(ALLOW_CREDENTIALS_PARAM, "true");
+       
+       
        environment.healthChecks().register("base", new ExampleHealthCheck());
        environment.jersey().register(new ExampleServiceResource());
        final Client client = new JerseyClientBuilder(environment).using(configuration.getJerseyClientConfiguration())
