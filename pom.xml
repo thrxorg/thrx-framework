@@ -24,6 +24,10 @@
       <tag>HEAD</tag>
    </scm>
 
+ <issueManagement>
+        <system>github</system>
+        <url>https://github.com/thrxorg/thrx-framework/issues/#issue/</url>
+    </issueManagement>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
