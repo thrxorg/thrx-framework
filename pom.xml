@@ -85,4 +85,16 @@
 			</distributionManagement>
 		</profile>
 	</profiles>
+  <repositories>
+    <repository>
+      <id>oss-jfrog</id>
+      <name>OSS jFrog repo - snapshots and releases</name>
+      <url>https://oss.jfrog.org/artifactory/repo</url>
+    </repository>
+    <repository>
+      <id>bintray</id>
+      <name>bintray repo - only releases</name>
+      <url>https://dl.bintray.com/thrxorg/public-maven-repo</url>
+    </repository>
+  </repositories>
 </project>
