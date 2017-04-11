@@ -17,6 +17,15 @@
 		<url>https://github.com/thrxorg</url>
 	</organization>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
    <scm>
       <connection>scm:git:https://github.com/thrxorg/thrx-framework.git</connection>
       <developerConnection>scm:git:https://github.com/thrxorg/thrx-framework.git</developerConnection>
@@ -28,6 +37,16 @@
         <system>github</system>
         <url>https://github.com/thrxorg/thrx-framework/issues/#issue/</url>
     </issueManagement>
+    
+        <distributionManagement>
+        <site>
+            <id>github</id>
+            <name>GitHub Pages Site</name>
+            <url>gitsite:git@github.com/thrxorg/thrx-framework.git</url>
+        </site>
+    </distributionManagement>
+    
+    
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -41,6 +60,7 @@
 		<module>thrx-framework-bom</module>
 		<module>thrx-framework-helper</module>
 		<module>thrx-framework-testing</module>
+		<module>thrx-framework-cassandra</module>
 		<module>thrx-service-example</module>
 	</modules>
 
@@ -85,4 +105,16 @@
 			</distributionManagement>
 		</profile>
 	</profiles>
+  <repositories>
+    <repository>
+      <id>oss-jfrog</id>
+      <name>OSS jFrog repo - snapshots and releases</name>
+      <url>https://oss.jfrog.org/artifactory/repo</url>
+    </repository>
+    <repository>
+      <id>bintray</id>
+      <name>bintray repo - only releases</name>
+      <url>https://dl.bintray.com/thrxorg/public-maven-repo</url>
+    </repository>
+  </repositories>
 </project>

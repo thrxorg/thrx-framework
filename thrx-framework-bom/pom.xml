@@ -1,133 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-   <modelVersion>4.0.0</modelVersion>
-   <prerequisites>
-      <maven>3.0.1</maven>
-   </prerequisites>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0.1</maven>
+	</prerequisites>
 
-   <parent>
-      <groupId>org.thrx.service</groupId>
-      <artifactId>thrx-framework-parent</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-   </parent>
+	<parent>
+		<groupId>org.thrx.service</groupId>
+		<artifactId>thrx-framework-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
 
-   <artifactId>thrx-framework-bom</artifactId>
-   <packaging>pom</packaging>
-   <name>thrx.org Microservice BOM</name>
-   <description>
+	<artifactId>thrx-framework-bom</artifactId>
+	<packaging>pom</packaging>
+	<name>thrx.org Microservice BOM</name>
+	<description>
         Bill of materials to make sure a consistent set of versions is used for Dropwizard modules.
     </description>
 
-   <properties>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <maven.compiler.target>1.8</maven.compiler.target>
-      <java.version>1.8</java.version>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <dropwizard.version>1.0.6</dropwizard.version>
-      <dropwizard-swagger.version>1.0.6-1</dropwizard-swagger.version>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-      <!-- Google -->
-      <guava.version>18.0</guava.version>
-      <guice.version>4.0</guice.version>
-      <!-- cassandra -->
-      <cassandra.version>3.1.2</cassandra.version>
-      <dropwizard-cassandra.version>1.0-dw0.8-cs2.1</dropwizard-cassandra.version>
-      <cassandra-migration.version>0.11</cassandra-migration.version>
-      <cassandra-unit.version>2.1.3.1</cassandra-unit.version>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<dropwizard.version>1.0.6</dropwizard.version>
+		<dropwizard-swagger.version>1.0.6-1</dropwizard-swagger.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Google -->
+		<guava.version>18.0</guava.version>
+		<dropwizard-guice.version>1.0.0.3</dropwizard-guice.version>
+		<guice.version>4.0</guice.version>
+		<!-- cassandra -->
+		<cassandra.version>3.1.2</cassandra.version>
+		<dropwizard-cassandra.version>1.0-dw0.8-cs2.1</dropwizard-cassandra.version>
+		<cassandra-migration.version>0.11</cassandra-migration.version>
+		<cassandra-unit.version>2.1.3.1</cassandra-unit.version>
+		<nimbus-jose-jwt.version>3.10</nimbus-jose-jwt.version>
+	</properties>
 
-   </properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.dropwizard</groupId>
+				<artifactId>dropwizard-bom</artifactId>
+				<version>${dropwizard.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 
-   <dependencyManagement>
-      <dependencies>
-         <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-bom</artifactId>
-            <version>${dropwizard.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-         </dependency>
+			<dependency>
+				<groupId>com.smoketurner</groupId>
+				<artifactId>dropwizard-swagger</artifactId>
+				<version>${dropwizard-swagger.version}</version>
+			</dependency>
 
-         <dependency>
-            <groupId>com.smoketurner</groupId>
-            <artifactId>dropwizard-swagger</artifactId>
-            <version>${dropwizard-swagger.version}</version>
-         </dependency>
+			<!-- Module Versions -->
+			<dependency>
+				<groupId>org.thrx.service</groupId>
+				<artifactId>thrx-framework-helper</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.thrx.service</groupId>
+				<artifactId>thrx-framework-cassandra</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.thrx.service</groupId>
+				<artifactId>thrx-framework-testing</artifactId>
+				<version>${project.version}</version>
+				<scope>test</scope>
+			</dependency>
 
-         <!-- Module Versions -->
-         <dependency>
-            <groupId>org.thrx.service</groupId>
-            <artifactId>thrx-framework-helper</artifactId>
-            <version>${project.version}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.thrx.service</groupId>
-            <artifactId>thrx-framework-testing</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-         </dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.16.16</version>
+				<scope>provided</scope>
+			</dependency>
 
-         <dependency>
-            <groupId>pl.pragmatists</groupId>
-            <artifactId>JUnitParams</artifactId>
-            <version>1.0.5</version>
-            <!-- <scope>test</scope> -->
-         </dependency>
-         <dependency>
-            <!-- JSON parser for tests -->
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.9.2</version>
-            <!-- <scope>test</scope> -->
-         </dependency>
-         <!-- Guice -->
-         <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>${guice.version}</version>
-         </dependency>
-         <!-- Guava -->
-         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-         </dependency>
-         <!-- Cassandra dependencies -->
-         
-         <dependency>
-            <groupId>systems.composable</groupId>
-            <artifactId>dropwizard-cassandra</artifactId>
-            <version>4.0.0</version>
-         </dependency>
-         <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-core</artifactId>
-            <version>${cassandra.version}</version>
-         </dependency>
-         <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-mapping</artifactId>
-            <version>${cassandra.version}</version>
-         </dependency>
-         <!-- https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-extras -->
-         <dependency>
-             <groupId>com.datastax.cassandra</groupId>
-             <artifactId>cassandra-driver-extras</artifactId>
-             <version>${cassandra.version}</version>
-         </dependency>
-         <dependency>
-            <groupId>com.builtamont</groupId>
-            <artifactId>cassandra-migration</artifactId>
-            <version>${cassandra-migration.version}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.cassandraunit</groupId>
-            <artifactId>cassandra-unit</artifactId>
-            <version>${cassandra-unit.version}</version>
-            <scope>test</scope>
-         </dependency>
 
-      </dependencies>
-   </dependencyManagement>
+			<dependency>
+				<groupId>pl.pragmatists</groupId>
+				<artifactId>JUnitParams</artifactId>
+				<version>1.0.5</version>
+				<!-- <scope>test</scope> -->
+			</dependency>
+			<dependency>
+				<!-- JSON parser for tests -->
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>1.9.2</version>
+				<!-- <scope>test</scope> -->
+			</dependency>
+			<!-- Guice -->
+			<dependency>
+				<groupId>com.hubspot.dropwizard</groupId>
+				<artifactId>dropwizard-guice</artifactId>
+				<version>${dropwizard-guice.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.inject</groupId>
+				<artifactId>guice</artifactId>
+				<version>${guice.version}</version>
+			</dependency>
+			<!-- Guava -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<!-- Cassandra dependencies -->
+
+			<dependency>
+				<groupId>systems.composable</groupId>
+				<artifactId>dropwizard-cassandra</artifactId>
+				<version>4.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.datastax.cassandra</groupId>
+				<artifactId>cassandra-driver-core</artifactId>
+				<version>${cassandra.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.datastax.cassandra</groupId>
+				<artifactId>cassandra-driver-mapping</artifactId>
+				<version>${cassandra.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-extras -->
+			<dependency>
+				<groupId>com.datastax.cassandra</groupId>
+				<artifactId>cassandra-driver-extras</artifactId>
+				<version>${cassandra.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.builtamont</groupId>
+				<artifactId>cassandra-migration</artifactId>
+				<version>${cassandra-migration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.cassandraunit</groupId>
+				<artifactId>cassandra-unit</artifactId>
+				<version>${cassandra-unit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.nimbusds</groupId>
+				<artifactId>nimbus-jose-jwt</artifactId>
+				<version>${nimbus-jose-jwt.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
