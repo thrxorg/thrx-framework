@@ -12,19 +12,19 @@ before_cache:
   - rm -rf $HOME/.m2/cache/org.thrx
   - rm -rf $HOME/.ivy2/cache/de.thrx
   - rm -rf $HOME/.ivy2/cache/org.thrx
-script: "mvn install --settings .travis_settings.xml"
+script: "mvn verify --settings .travis_settings.xml"
 deploy:
-  - skip_cleanup: true
+#  - skip_cleanup: true
   # deploy develop to the staging environment
   - provider: script
     script: "mvn deploy --settings .travis_settings.xml"
     on:
       branch: develop
-  # deploy master to production
-  - provider: script
-    script: "mvn deploy --settings .travis_settings.xml"
-    on:
-      branch: master
+#  # deploy master to production
+#  - provider: script
+#    script: "mvn deploy --settings .travis_settings.xml"
+#    on:
+#      branch: master
 notifications:
   webhooks:
     urls:
