@@ -10,7 +10,7 @@
       <version>0.1.0-SNAPSHOT</version>
    </parent>
 
-   <artifactId>thrx-framework-dropwizard-cassandra</artifactId>
+   <artifactId>thrx-framework-cassandra</artifactId>
    <packaging>jar</packaging>
 
    <name>Thrx Dropwizard Cassandra</name>
