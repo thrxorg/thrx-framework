@@ -69,6 +69,10 @@
          <version>1.9.0</version>
          <scope>test</scope>
       </dependency>
+      <dependency>
+		<groupId>com.builtamont</groupId>
+		<artifactId>cassandra-migration</artifactId>
+	  </dependency>
    </dependencies>
 
    <!-- javadoc, source, release, deploy and gpg plugins all configured by 

@@ -17,6 +17,15 @@
 		<url>https://github.com/thrxorg</url>
 	</organization>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
    <scm>
       <connection>scm:git:https://github.com/thrxorg/thrx-framework.git</connection>
       <developerConnection>scm:git:https://github.com/thrxorg/thrx-framework.git</developerConnection>
@@ -28,6 +37,16 @@
         <system>github</system>
         <url>https://github.com/thrxorg/thrx-framework/issues/#issue/</url>
     </issueManagement>
+    
+        <distributionManagement>
+        <site>
+            <id>github</id>
+            <name>GitHub Pages Site</name>
+            <url>gitsite:git@github.com/thrxorg/thrx-framework.git</url>
+        </site>
+    </distributionManagement>
+    
+    
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -43,6 +62,7 @@
 		<module>thrx-framework-testing</module>
 		<module>thrx-framework-dropwizard-cassandra</module>
 		<module>thrx-service-example</module>
+		<module>thrx-service-loader-parent</module>
 	</modules>
 
 	<!-- <build> <extensions> <extension> <groupId>org.apache.maven.wagon</groupId> 
