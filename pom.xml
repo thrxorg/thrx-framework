@@ -41,6 +41,7 @@
 		<module>thrx-framework-bom</module>
 		<module>thrx-framework-helper</module>
 		<module>thrx-framework-testing</module>
+		<module>thrx-framework-dropwizard-cassandra</module>
 		<module>thrx-service-example</module>
 	</modules>
 
