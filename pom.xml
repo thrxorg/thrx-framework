@@ -62,7 +62,6 @@
 		<module>thrx-framework-testing</module>
 		<module>thrx-framework-cassandra</module>
 		<module>thrx-service-example</module>
-		<module>thrx-service-loader-parent</module>
 	</modules>
 
 	<!-- <build> <extensions> <extension> <groupId>org.apache.maven.wagon</groupId> 
