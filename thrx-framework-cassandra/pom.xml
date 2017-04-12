@@ -64,6 +64,11 @@
 			<groupId>com.builtamont</groupId>
 			<artifactId>cassandra-migration</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.cassandraunit</groupId>
+			<artifactId>cassandra-unit</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
 
