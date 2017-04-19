@@ -33,7 +33,9 @@ public abstract class DropwizardTestBase<T extends Configuration> {
 
    public void setUp() {
       adminBaseUrl = "http://127.0.0.1:" + getDropwizard().getAdminPort() + getDropwizard().getEnvironment().getAdminContext().getContextPath();
-      baseUrl = "http://127.0.0.1:" + getDropwizard().getLocalPort() + getDropwizard().getEnvironment().getApplicationContext().getContextPath();
+      baseUrl = "http://127.0.0.1:" + getDropwizard().getLocalPort() + 
+            getDropwizard().getEnvironment().getApplicationContext().getContextPath() +
+            getDropwizard().getEnvironment().jersey().getResourceConfig().getUrlPattern().substring(0, getDropwizard().getEnvironment().jersey().getResourceConfig().getUrlPattern().length()-2);
 
       restClient = ClientBuilder.newClient();
       // jerseyClient = new JerseyClientBuilder().build();
