@@ -1,3 +1,7 @@
+## ARCHIVED
+
+old POC
+
 # thrx-framework
 
 my personal thrx microservice framework based on dropwizard
